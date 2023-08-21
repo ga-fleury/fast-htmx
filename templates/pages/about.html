@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>FastAPI and HTMX</title>
+  <script src="/static/js/htmx.min.js"></script>
+  <script src="/static/js/client-side-templates.js"></script>
+  <script src="/static/js/calls.js"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header hx-trigger="load" hx-get="/components/header"></header>
+  <div class="flex flex-col bg-blue-900 items-center justify-center h-screen w-screen">
+
+    <h1>about</h1>
+
+  </div>
+</body>
+
+</html>

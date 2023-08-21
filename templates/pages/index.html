@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>FastAPI and HTMX</title>
+  <script src="/static/js/htmx.min.js"></script>
+  <script src="/static/js/client-side-templates.js"></script>
+  <script src="/static/js/calls.js"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header hx-trigger="load" hx-get="/components/header"></header>
+  <div class="flex flex-col bg-blue-900 items-center justify-center h-screen w-screen">
+    <div hx-ext="client-side-templates">
+
+        <div class="relative">
+            <input type="number" class="block p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" id="numbervalue">
+            <button hx-on:click="multiplyDataCall()" type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Multiply</button>
+        </div>
+
+      <p id="result"></p>
+    </div>
+
+  </div>
+  <script>
+    htmx.logAll();
+  </script>
+  <!-- <script>
+    // Remove all extra htmx headers, re-add content-type.
+    document.body.addEventListener('htmx:configRequest', function(event) {
+        console.log(event.detail.parameters.number);
+    });
+    </script> -->
+</body>
+
+</html>
